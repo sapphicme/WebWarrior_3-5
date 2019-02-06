@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tools</title>
+</head>
+
+<body>
+<div align="left" style="width:650px; margin-left:auto; margin-right:auto;">
+<header> 
+<h2 align="center" style="background-color:lightgrey"> Tools</h2>
+</header>
+	<article>
+		<div id="results" style="width: 350px; background-color:#BEE3BA; float: right;">
+			<ul>
+			<li id="item1"></li>
+			<li id="item2"></li>
+			<li id="item3"></li>
+			<li id="item4"></li>
+			<li id="item5"></li>
+			</ul>
+			<p id="resultsExpl"></p>
+			</div>
+		<div id="submit" style="width: 300px; height: 600px; float: left">
+		<form>
+			<fieldset>
+				<label for="toolBox" id="placeLabel">
+				Type the name of a tool, then click Submit: 
+				</label>
+				<input type="text" id="toolBox"/>
+				<button type="button" id="button" style="float:right">Submit</button>
+			</fieldset>
+			</form>
+			<fieldset>
+			<small>
+			Arielle Mueller #301037045
+			</small>
+			</fieldset>
+	</div>
+
+</article>
+</div>
+<script>
+	var i = 1; //counter var
+	var listItem = "";
+	// to add input to list
+	function processInput(){
+		switch (i) {
+		case 5:
+			listItem = "item" + i; 
+			document.getElementById(listItem).innerHTML = document.getElementById("toolBox").value;
+			// add value to list
+			document.getElementById("toolBox").value = ""; //clear the text box
+			document.getElementById("resultsExpl").innerHTML = "Thanks!"
+			i++;
+			break;
+		default:
+			listItem = "item" +i;
+			document.getElementById(listItem).innerHTML = document.getElementById("toolBox").value;
+			//add to list
+			document.getElementById("toolBox").value = "";
+			i++;
+			break;
+		}
+	}
+	
+	var submitButton = document.getElementById("button");
+	if(submitButton.addEventListener){
+	submitButton.addEventListener("click", processInput, false);
+	}
+	else if (submitButton.attachEvent){
+	submitButton.attachEvent("onclick", processInput);
+	}
+</script>
+</body>
+</html>		
